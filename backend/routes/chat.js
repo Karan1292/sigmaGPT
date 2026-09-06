@@ -4,7 +4,6 @@ import getAPIResponse from "../utils/gemini_api.js";
 import { chatLimiter } from "../middleware/rateLimiter.js";
 const router=express.Router();
 
-
 router.post("/test",async (req,res)=>{
     try{
         const thread=new Thread({
