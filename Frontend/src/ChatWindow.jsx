@@ -80,7 +80,7 @@ function ChatWindow(){
             <ScaleLoader color='#fff' loading={loading}></ScaleLoader>
             <div className="chatInput">
                 <div className="inputBox">
-                    <input placeholder='Ask anything' value={prompt} onChange={(e)=>setPrompt(e.target.value)} onKeyDown={(e)=>e.key==='Enter'? getReply(): ''}/>
+                    <input id='chat' placeholder='Ask anything' value={prompt} onChange={(e)=>setPrompt(e.target.value)} onKeyDown={(e)=>e.key==='Enter'? getReply(): ''}/>
                     <div id="submit" onClick={getReply}><i className='fa-solid fa-paper-plane'></i></div>
                 </div>
                 <p className='info'>
