@@ -1,7 +1,7 @@
 import express from "express";
 import Thread from "../models/Threads.js";
 import getAPIResponse from "../utils/gemini_api.js";
-import {chatLimiter}  from "../middleware/rateLimiter.js";
+import {chatLimiter,deleteThreadLimiter}  from "../middleware/rateLimiter.js";
 const router=express.Router();
 
 router.post("/test",async (req,res)=>{
@@ -49,7 +49,7 @@ router.get("/thread/:threadId",async(req,res)=>{
     }
 });
 
-router.delete("/thread/:threadId",chatLimiter,async (req,res)=>{
+router.delete("/thread/:threadId",deleteThreadLimiter,async (req,res)=>{
     const {threadId}=req.params;
     try{
         const deletedThread=await Thread.findOneAndDelete({threadId});
